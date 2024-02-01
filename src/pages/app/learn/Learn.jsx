@@ -24,7 +24,11 @@ function Learn() {
             {
               course.chapters.map((chapter,i)=> {
                 return (
-                  <div className={style.chapterId} key={i}>{chapter.title}</div>
+                  <div className={style.chapterId} key={i}>
+                    <Link to={`chapter/${chapter.chapter}`}>
+                      {chapter.title}
+                    </Link>
+                  </div>
                 );
               })
             }
@@ -33,6 +37,7 @@ function Learn() {
       
       <div className={style.courses}>
         {/**Task5:  Chapter Details Must be rendered here */}
+           <Outlet context={{...course}} /> 
       </div>
     </div>
 </div>
